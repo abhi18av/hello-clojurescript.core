@@ -1,4 +1,4 @@
-# hello-clojurescript.core
+= hello-clojurescript.core
 
 [] TODO replace this with Hiccup based HTML generation
 [] TODO Replace this with Garden based CSS generation 
@@ -6,11 +6,11 @@
 
 FIXME: Write a one-line description of your library/project.
 
-## Overview
+== Overview
 
 FIXME: Write a paragraph about the library/project and highlight its goals.
 
-## Development
+== Development
 
 To get an interactive development environment run:
 
@@ -34,8 +34,8 @@ To create a production build run:
 	lein fig:min
 
 
-## License
+== License
 
-Copyright © 2018 FIXME
+Copyright © 2019 abhi18av
 
 Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
