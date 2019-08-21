@@ -3,28 +3,24 @@
    [goog.dom :as gdom]))
 
 ;;;;;;;;;;;;;;;;;
+;; UTILS
+;;;;;;;;;;;;;;;;;
+
+(enable-console-print!)
+
+;;;;;;;;;;;;;;;;;
 ;; PLAYGROUND
 ;;;;;;;;;;;;;;;;;
 
 
-(println "Hello, ClojureScript!")
+;;(js/console.log "console.log")
+;; (js/console.clear)
 
 
+(println (type 1))
+(println (type 1.0))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+(println {:a "A" :c {:b "b"}})
 
 
 
@@ -66,7 +62,7 @@
 (defonce app-state (atom {:text "Hello world!"}))
 
 (defn get-app-element []
-  (gdom/getElement "app"))
+(gdom/getElement "app"))
 
 
 ;;;;;;;;;;;;;;;;;
@@ -81,6 +77,7 @@
 
 ;; specify reload hook with ^;after-load metadata
 (defn ^:after-load on-reload []
-  ;; optionally touch your app-state to force rerendering depending on
-  ;; your application
-  (swap! app-state update-in [:__figwheel_counter] inc))
+(println "REPL reloaded!")
+;; optionally touch your app-state to force rerendering depending on
+;; your application
+(swap! app-state update-in [:__figwheel_counter] inc))
