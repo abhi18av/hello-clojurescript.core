@@ -23,9 +23,9 @@
 (println {:a "A" :c {:b "b"}})
 
 
+(def js-arr (array 1 2 3))
 
-
-
+(println (js/typeOf js-arr))
 
 
 

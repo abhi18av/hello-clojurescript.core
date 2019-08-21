@@ -1,5 +1,16 @@
 = hello-clojurescript.core
+== Important links for playing around
 
+- http://localhost:9500/
+- https://cljs.info/cheatsheet/
+- https://kanaka.github.io/clojurescript/web/synonym.html
+- http://www.4clojure.com/
+- https://google.github.io/closure-library/api/
+- https://cljs.github.io/api/
+
+
+== ToDos
+[] `clj` and `cljc` namespaces
 [] TODO replace this with Hiccup based HTML generation
 [] TODO Replace this with Garden based CSS generation 
 
