@@ -1,6 +1,9 @@
 ;; Figwheel-main configuration options see: https://figwheel.org/config-options
 ;; these will be overriden by the metadata config options in dev.cljs.edn build file
-{ 
+{
+
+ :css-dirs ["resources/public/css"]
+
  ;; Set the server port https://figwheel.org/config-options#ring-server-options
  ;; :ring-server-options {:port 9500}
 
@@ -28,4 +31,4 @@
 
  ;; Logging output gets printed to the REPL, if you want to redirect it to a file:
  ;; :log-file "figwheel-main.log"
-}
+ }

@@ -1,5 +1,9 @@
 # hello-clojurescript.core
 
+[] TODO replace this with Hiccup based HTML generation
+[] TODO Replace this with Garden based CSS generation 
+
+
 FIXME: Write a one-line description of your library/project.
 
 ## Overview

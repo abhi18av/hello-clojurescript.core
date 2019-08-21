@@ -2,8 +2,9 @@
   (:require
    [goog.dom :as gdom]))
 
-(println "This text is printed from src/hello_clojurescript/core.cljs. Go ahead and edit it and see reloading in action.")
+(println "Hello, ClojureScript!")
 
+;; This function is used in test
 (defn multiply [a b] (* a b))
 
 
@@ -14,10 +15,17 @@
   (gdom/getElement "app"))
 
 
+;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;
+
+;; (defn ^:before-load my-before-reload-callback []
+;;   (println "BEFORE reload!!!"))
+
+;; (defn ^:after-load my-after-reload-callback []
+;;   (println "AFTER reload!!!"))
 
 ;; specify reload hook with ^;after-load metadata
 (defn ^:after-load on-reload []
   ;; optionally touch your app-state to force rerendering depending on
   ;; your application
-  ;; (swap! app-state update-in [:__figwheel_counter] inc)
-)
+  (swap! app-state update-in [:__figwheel_counter] inc))
