@@ -14,3 +14,4 @@ pom.xml
 
 resources/public/cljs-out/
 figwheel-main.log*
+/_resources
