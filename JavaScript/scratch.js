@@ -54,18 +54,25 @@ function whoAmI(myName, myNickname, myAge) {
 
 // clog(typeof([1,2,3]))
 
-clog(typeof([1,2,3]) == Array)
+// clog(typeof([1,2,3]) == Array)
 
-clog(Object.is(Array, [1,2,3]))
+// clog(Object.is(Array, [1,2,3]))
 
-clog(Array.isPrototypeOf([1,2]))
+// clog(Array.isPrototypeOf([1,2]))
 
-clog(Array(1,2) == [1,2])
+// clog(Array(1,2) == [1,2])
 
-clog(Array(1,2) === [1,2])
+// clog(Array(1,2) === [1,2])
+
+// clog([1,2].constructor)
 
 /////
 // 
 /////
 
-
+if (String && Number && BigInt && Array && Object) {
+    clog(true)
+} else {
+// undefined/NaN/null -> false
+    clog(false)
+}
