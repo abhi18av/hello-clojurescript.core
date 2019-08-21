@@ -2,10 +2,64 @@
   (:require
    [goog.dom :as gdom]))
 
+;;;;;;;;;;;;;;;;;
+;; PLAYGROUND
+;;;;;;;;;;;;;;;;;
+
+
 (println "Hello, ClojureScript!")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;;;;;;;;;;;;;;;;;
+;; TESTING
+;;;;;;;;;;;;;;;;;
 
 ;; This function is used in test
 (defn multiply [a b] (* a b))
+
+;;;;;;;;;;;;;;;;;
+;; APP STATE
+;;;;;;;;;;;;;;;;;
 
 
 ;; define your app data so that it doesn't get over-written on reload
@@ -16,6 +70,7 @@
 
 
 ;;;;;;;;;;;;;;;;;
+;; RELOAD HOOKS
 ;;;;;;;;;;;;;;;;;
 
 ;; (defn ^:before-load my-before-reload-callback []
