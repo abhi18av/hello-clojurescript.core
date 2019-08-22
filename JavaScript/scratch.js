@@ -70,9 +70,31 @@ function whoAmI(myName, myNickname, myAge) {
 // 
 /////
 
-if (String && Number && BigInt && Array && Object) {
-    clog(true)
-} else {
-// undefined/NaN/null -> false
-    clog(false)
+// if (String && Number && BigInt && Array && Object) {
+//     clog(true)
+// } else {
+// // undefined/NaN/null -> false
+//     clog(false)
+// }
+
+
+/////
+// 
+/////
+
+let studentNames = ['Jack', 'Jill'];
+
+// for (let i = 0 ; i < studentNames.length ; i++) {
+//     clog(studentNames[i]);
+// }
+
+for (let student in studentNames ) {
+    clog(student);
 }
+
+for (let student of studentNames ) {
+    clog(student);
+}
+
+
+
