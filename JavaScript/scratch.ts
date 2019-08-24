@@ -109,17 +109,25 @@ let clog = console.log;
 
 
 
-function timeOut(n: number) {
-    return new Promise(res => setTimeout(res,n));
+// function timeOut(n: number) {
+//     return new Promise(res => setTimeout(res,n));
+// }
+
+// //timeOut(1);
+
+// export async function addNumbers(a: number, b: number) {
+//     await timeOut(500);
+//     return a + b;
+// }
+
+// (async () => {
+//     clog(await addNumbers(1,9))
+// })();
+
+
+const yObj = {
+    foo : 'hello'
 }
 
-//timeOut(1);
+clog(typeof(yObj))
 
-export async function addNumbers(a: number, b: number) {
-    await timeOut(500);
-    return a + b;
-}
-
-(async () => {
-    clog(await addNumbers(1,9))
-})();
