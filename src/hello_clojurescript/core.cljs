@@ -334,12 +334,66 @@
 
 ;; 01 - Big O Notation
 
+(defn print-first-item
+  [items]
+  (js/console.log (get items 0)))
 
 
+
+;; (defn print-all-items
+;;   [items]
+;;   (map println items))
+
+;; (print-all-items [1 2 3 4 4])
+
+;; (goog.array.forEach (array 1 2 3 4) js/console.log) ;; prints js object
+
+;; (goog.array.forEach (array 1 2 3 4) println) ;; prints cljs object ;;TODO
+
+
+
+;; TODO
+;; (defn print-all-possible-ordered-pairs
+;;   [items]
+;;   (goog.array.forEach
+;;    (clj->js items)
+;;    (goog.array.forEach  (clj->js items ) js/console.log) ;; prints js object
+;;    ))
+
+
+;; (defn print-all-possible-ordered-pairs
+;;   [items]
+;;   (for [x  items
+;;         y  items]
+;;     (doto
+;;         (js/console.log (array x y))
+;;       (array x y)))) ;; TODO why does it only print cljs objects when called from js repl
+
+;; (print-all-possible-ordered-pairs ["a" "A" "b" "B"])
 
 
 ;; 02 - Data Structures
+
+
 ;; 03 - Logarithms
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
