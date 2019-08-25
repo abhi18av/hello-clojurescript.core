@@ -1,11 +1,15 @@
 (ns ^:figwheel-hooks hello-clojurescript.core
   (:require
-   [goog.dom :as gdom]))
+   [goog.dom :as gdom]
+   [goog.object :as gobj]))
 
 
 ;;;;;;;;;;;;;;;;;
 ;; REFERENCES
 ;;;;;;;;;;;;;;;;;
+
+;; http://localhost:9500/
+;; http://localhost:9500/figwheel-extra-main/auto-testing ;; testing figwheel
 
 ;; https://cljs.github.io/api/
 
@@ -15,11 +19,18 @@
 
 ;; https://clojurescript.org/guides/faq-js
 
+;; https://www.spacjer.com/blog/2014/09/12/clojurescript-javascript-interop/
 
 ;; https://cljs.info/cheatsheet/
 
+;; https://google.github.io/closure-library/api/
+;; https://m.seehuhn.de/data/jvjsdoc/example/index.html
 
 ;; https://kanaka.github.io/clojurescript/web/synonym.html
+
+;; https://www.rubberducking.com/2018/04/overview-of-clojurescript-110-features.html
+
+;; TODO https://codetower.github.io/es6-features/
 
 ;;;;;;;;;;;;;;;;;
 ;; UTILS
@@ -27,6 +38,10 @@
 
 
 (enable-console-print!)
+
+(js/console.clear)
+
+
 
 ;;;;;;;;;;;;;;;;;
 ;; PLAYGROUND
@@ -216,6 +231,144 @@
 
 
 
+;; (def js-object {"a" "A"})
+
+;; (type js-object)
+
+;; (def js-object2 (js-obj "a" "A" "b" "B"))
+
+;; (type js-object2)
+
+
+
+;; TODO add key-val to javascript object using clojurescript
+
+;; (conj js-object2 "c"  "C")
+
+;; (cons js-object2 #js "c" "C")
+
+;; (assoc js-object2 "c" "C")
+
+
+;; (gobj/set js-object2 "c" "C")
+
+
+;; (gobj/get js-object2 "c")
+
+;; (js/delete js-object2 "c")
+
+
+;; (js/Object.values js-object2)
+
+;; (gobj/getValues js-object2)
+
+
+;; (gobj/remove js-object2 "c")
+
+;; (js-delete js-object2 "c")
+
+;;;;;;; js-maps
+
+
+;; (def es6-map (js/Map.))
+;; (.set es6-map "a" "A")
+;; (.set es6-map "b" "B")
+;; (.get es6-map "a")
+;; (.-size es6-map)
+
+
+;; ;;; WeakMap
+
+;; (def wm (js/WeakMap.))
+;; (def o #js{:a 10})
+;; (.set wm o 100)
+;; (.get wm o)
+;; ;;=> 100
+
+;; (js/Number.isNaN ##NaN)
+;; ;;=> true
+
+;; (let [obj #js{:a 1}]
+;;   (js/Object.defineProperty obj "b" #js{:value 2})
+;;   (set! (.-c obj) 3)
+;;   (js/Reflect.ownKeys obj))
+;; ;;=> #js ["a" "b" "c"]
+
+;; (let [target #js{:foo "Welcome, Foo"}
+;;       proxy (js/Proxy. target
+;;                        #js{:get
+;;                            (fn get [receiver name]
+;;                              (str "Hello " name))})]
+;;   (.-foo proxy))
+;; ;;=> "Hello foo"
+
+
+;; ;;;;;;;;;;;;;;;;;
+;; ;; HASH-MAP - CLOJURE
+;; ;;;;;;;;;;;;;;;;;
+
+
+;; (def cljs-hashmap {:a "A" :b "B"})
+
+;; (def js-cljs-hashmap (clj->js cljs-hashmap))
+
+;; (conj cljs-hashmap {:c "C"})
+
+;; ;; (disj cljs-hashmap [:c])
+
+
+;; (dissoc cljs-hashmap :b)
+
+;; (keys cljs-hashmap)
+
+;; (vals cljs-hashmap)
+
+;; (get cljs-hashmap :c 0)
+
+
+;;;;;;;;;;;;;;;;;
+;; INTERVIEWCAKE
+;; 00 => Algorithmic Thinking
+;;;;;;;;;;;;;;;;;
+
+
+;; 01 - Big O Notation
+
+
+
+
+
+;; 02 - Data Structures
+;; 03 - Logarithms
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -227,22 +380,11 @@
 
 
 ;;;;;;;;;;;;;;;;;
-;; HASH-MAP - CLOJURE
+;; LEETCODE
+;; https://github.com/kaeducation/LeetCode_JS/tree/master/exercises
 ;;;;;;;;;;;;;;;;;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+;; LC3 - Longest substring without repeating characters
 
 
 
