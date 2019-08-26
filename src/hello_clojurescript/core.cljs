@@ -1,6 +1,7 @@
 (ns ^:figwheel-hooks hello-clojurescript.core
   (:require
    [goog.dom :as gdom]
+   [clojure.set]
    [goog.object :as gobj]))
 
 
@@ -324,6 +325,113 @@
 ;; (vals cljs-hashmap)
 
 ;; (get cljs-hashmap :c 0)
+
+
+
+
+;;;;;;;;;;;;;;;;;
+;; SETS
+;; https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+;;;;;;;;;;;;;;;;;
+
+;; (def a-js-set-1 (js/Set.))
+;; (type a-js-set-1)
+;; (.add a-js-set-1 1)
+;; (.add a-js-set-1 2)
+;; (js/console.log a-js-set-1)
+
+
+;; (def a-js-set-2 (js/Set.))
+;; ;;(type a-js-set-2)
+;; (.add a-js-set-2 5)
+;; (.add a-js-set-2 3)
+;; (.add a-js-set-2 1)
+;; (js/console.log a-js-set-2)
+;; (.has a-js-set-2 1)
+;; (.delete a-js-set-2 1)
+
+
+;; ;; (goog.collections.sets/union a-js-set-1 a-js-set-2)
+;; (goog.structs.Set/intersection a-js-set-1 a-js-set-2)
+
+
+
+(def cljs-hash-set #{1 2 3})
+
+(clojure.set/union #{1 2 3} #{3 4})
+(clojure.set/union #{1 2 3} #{3 4})
+(clojure.set/intersection #{1 2 3} #{3 4})
+(clojure.set/difference #{1 2 3} #{3 4})
+
+
+
+;; (type (clj->js cljs-hash-set))
+;; (type (new js/Set cljs-hash-set))
+
+
+(def a-js-set-3 (new js/Set cljs-hash-set))
+
+(.-size a-js-set-3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ;;;;;;;;;;;;;;;;;
