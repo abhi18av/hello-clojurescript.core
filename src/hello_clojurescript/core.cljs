@@ -509,25 +509,27 @@
 ;; (seq "abc")
 ;; (seq? (seq "abc"))
 
+;; (conj '(1 2) 0)
+
+;; (cons 0 '(1 2))
+
+;; (conj {:language "ClojureScript"} [:file-extension "cljs"])
+;; ;; (conj {:language "ClojureScript"} '(:file-extension "cljs")) ;; doesn't work
+;; (conj {:language "ClojureScript"} {:file-extension "cljs"})
+
+
+;; (take 10 (range))
 
 
 
 
+;; works
+(["cero" "uno" "dos"] 4 nil)
+({:a "A" :b "B"} :a nil)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+;; Don't work
+;; (#{"cero" "uno" "dos"} 0)
+;; (("cero" "uno" "dos") 0)
 
 
 
