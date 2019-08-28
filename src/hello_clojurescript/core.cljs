@@ -12,6 +12,8 @@
 ;; http://localhost:9500/
 ;; http://localhost:9500/figwheel-extra-main/auto-testing ;; testing figwheel
 
+;; https://funcool.github.io/clojurescript-unraveled/
+;; https://devdocs.io/node/process
 ;; https://cljs.github.io/api/
 
 ;; https://www.freecodecamp.org/news/here-is-a-quick-overview-of-the-similarities-and-differences-between-clojurescript-and-javascript-c5bd51c5c007/
@@ -138,9 +140,12 @@
 
 ;; (def fruits (array "Apple" "Banana"))
 
+;; (type fruits)
+
 ;; (get fruits 1)
 
-;; ;;;;;;;;;;;;
+
+;;;;;;;;;;;;
 ;; (count fruits)
 
 ;; ;;;;;;;;;;;;
@@ -372,36 +377,47 @@
 
 (.-size a-js-set-3)
 
+;;;;;;;;;;;;;;;;;
+
+(def fruits (array "Apple" "Banana"))
+
+(type fruits)
+
+(get fruits 1)
+
+(def os (js/require "os"))
+
+;; (js/console.log (os.cpus))
+
+(def cpus (os.cpus))
+
+(type cpus)
+
+;; (js->clj
+;;  (js/Object.values
+;;   (first
+;;    (js/Object.values cpus))))
 
 
 
+;; (defn obj->clj
+;;   [obj]
+;;   (if (goog.isObject obj)
+;;     (-> (fn [result key]
+;;           (let [v (goog.object/get obj key)]
+;;             (if (= "function" (goog/typeOf v))
+;;               result
+;;               (assoc result key (obj->clj v)))))
+;;         (reduce {} (.getKeys goog/object obj)))
+;;     obj))
+
+;; (obj->clj cpus)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+(println
+ (get
+  (js->clj (-> cpus js/JSON.stringify js/JSON.parse)) 2))
 
 
 
@@ -442,8 +458,8 @@
 ;; 01 - Big O Notation
 
 (defn print-first-item
-  [items]
-  (js/console.log (get items 0)))
+[items]
+(js/console.log (get items 0)))
 
 
 
