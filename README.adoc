@@ -14,6 +14,12 @@
 [] Replace this with Hiccup based HTML generation 
 [] Replace this with Garden based CSS generation 
 
+## Add `NW.js` using the following 
+
+```
+yarn add -D nw@sdk
+```
+
 
 FIXME: Write a one-line description of your library/project.
 

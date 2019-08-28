@@ -134,7 +134,6 @@
 
 
 
-
 ;; (js/console.clear)
 
 ;; (def fruits (array "Apple" "Banana"))
@@ -547,7 +546,6 @@
 ;;;;;;;;;;;;;;;;;
 
 ;; LC3 - Longest substring without repeating characters
-
 
 
 

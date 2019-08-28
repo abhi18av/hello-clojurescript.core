@@ -1,0 +1,28 @@
+{
+  "name": "hello-clojurescript.core",
+  "version": "1.0.0",
+  "description": "hello-clojurescript.core",
+  "main": "http://localhost:9500",
+  "node-remote": "http://localhost:9500",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "nw": "nw --disable-raf-throttling",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhi18av/hello-clojurescript.core.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abhi18av/hello-clojurescript.core/issues"
+  },
+  "homepage": "https://github.com/abhi18av/hello-clojurescript.core#readme",
+  "devDependencies": {
+    "nw": "^0.40.1-sdk"
+  }
+}
