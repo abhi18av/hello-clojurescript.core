@@ -359,7 +359,6 @@
 ;; (goog.structs.Set/intersection a-js-set-1 a-js-set-2)
 
 
-
 (def cljs-hash-set #{1 2 3})
 
 (clojure.set/union #{1 2 3} #{3 4})
@@ -440,8 +439,8 @@
 ;;    (+ x increment)))
 
 ;; (defn my-variadic-addition
-;;   [& params]
-;;   (apply + params))
+;;   [& others]
+;;   (apply + others))
 
 ;; (my-variadic-addition 1 2 3 4)
 
@@ -524,6 +523,8 @@
 
 
 ;; works
+
+
 (["cero" "uno" "dos"] 4 nil)
 ({:a "A" :b "B"} :a nil)
 
@@ -532,21 +533,52 @@
 ;; (("cero" "uno" "dos") 0)
 
 
+;; (compare 1 2 )
+
+;; (let [spanish-vowels #{\a \e \i \o \u}]
+;;   (conj spanish-vowels \æ \ø \å))
 
 
+(def pq #queue [1 2 3])
 
+(peek pq)
+(pop pq)
+(conj pq 1)
 
+(let [[fst scnd & others] [0 1 2 3 5]]
+  (run! println [fst scnd others]))
 
+(let [[fst snd & more :as original] (range 10)]
+  {:first fst
+   :snd snd
+   :rest more
+   :original original})
 
+(let [{language :language} {:language "ClojureScript"}]
+  language)
 
+(let [{name :name :or {name "Anonymous"}} {:name "Cirilla"}]
+  name)
 
+(let [{name :name :as person} {:name "Cirilla" :age 49}]
+  [name person])
 
+(let [{one 1} {0 "zero" 1 "one"}]
+  one)
+;; => "one"
 
+(let [{name "name"} {"name" "Cirilla"}]
+  name)
+;; => "Cirilla"
 
+(let [{lang 'language} {'language "ClojureScript"}]
+  lang)
 
+(let [{:keys [name surname]} {:name "Cirilla" :surname "Fiona"}]
+  [name surname])
 
-
-
+(let [{[fst snd] :languages} {:languages ["ClojureScript" "Clojure"]}]
+  [snd fst])
 
 
 
@@ -576,6 +608,7 @@
 
 
 ;; 01 - Big O Notation
+
 
 (defn print-first-item
   [items]
@@ -730,7 +763,7 @@
 (defonce app-state (atom {:text "Hello world!"}))
 
 (defn get-app-element []
-(gdom/getElement "app"))
+  (gdom/getElement "app"))
 
 
 ;;;;;;;;;;;;;;;;;
@@ -747,7 +780,7 @@
 
 
 (defn ^:after-load on-reload []
-(println "<<<<< REPL RELOADED >>>>>")
+  (println "<<<<< REPL RELOADED >>>>>")
 ;; optionally touch your app-state to force rerendering depending on
 ;; your application
-(swap! app-state update-in [:__figwheel_counter] inc))
+  (swap! app-state update-in [:__figwheel_counter] inc))
