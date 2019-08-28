@@ -415,9 +415,127 @@
 
 
 
-(println
- (get
-  (js->clj (-> cpus js/JSON.stringify js/JSON.parse)) 2))
+;; (println
+;;  (get
+;;   (js->clj (-> cpus js/JSON.stringify js/JSON.parse)) 2))
+
+
+;;;;;;;;;;;;;;;;;
+;; CLOJURESCRIPT UNRAVELED
+;;;;;;;;;;;;;;;;;
+
+;; (let [x 1
+;;       y 2
+;;       z 3]
+;;   (+ x y z))
+
+
+
+
+
+;; (defn myinc
+;;   "Self defined version of parameterized `inc`."
+;;   ([x] (myinc x 1)) ;; recursive call
+;;   ([x increment]
+;;    (+ x increment)))
+
+;; (defn my-variadic-addition
+;;   [& params]
+;;   (apply + params))
+
+;; (my-variadic-addition 1 2 3 4)
+
+;; (my-variadic-addition [1 2 3 4])
+
+;; (let [x -1]
+;;   (cond
+;;     (> x 0) "positive"
+;;     :default "zero"))
+
+
+;; (defn translate-lang-code
+;;   [code]
+;;   (condp = (keyword code)
+;;     :es "Spanish"
+;;     :en "English"
+;;     "Unknown"))
+
+
+;; (translate-lang-code "en")
+
+
+;; (filter #{1 2 3} (range 1 10))
+
+;; (def x 1)
+
+;; (for [x [:a :b :c]
+;;       y (range 3)]
+;;   [x y])
+
+
+
+;; (defn recurse-fn [init limit]
+;;   (loop [x init]
+;;     (println "Looping with " x)
+;;     (if (= x limit)
+;;       (println "Done looping!")
+;;       (recur (inc x)))))
+
+;; stack overflow at 10000 - which still works in clojure
+;; (recurse-fn 0 5)
+
+
+
+;; (reduce + 0 [1 2 3 4])
+
+
+;; (for [x [1 2 3]
+;;       y [4 5]
+;;       :let [z (+ x y)]
+;;       :while (> z 5)
+;;       :when (= z 7)]
+;;   z)
+
+
+;; (doseq [x [1 2 3]
+;;         y [4 5]
+;;         :let [z (+ x y)]]
+;;   (println x "+" y "=" z))
+
+
+;; (run! println [1 2 3])
+
+
+;; (seq "abc")
+;; (seq? (seq "abc"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -458,8 +576,8 @@
 ;; 01 - Big O Notation
 
 (defn print-first-item
-[items]
-(js/console.log (get items 0)))
+  [items]
+  (js/console.log (get items 0)))
 
 
 
