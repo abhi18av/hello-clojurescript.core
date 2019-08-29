@@ -580,6 +580,210 @@
 (let [{[fst snd] :languages} {:languages ["ClojureScript" "Clojure"]}]
   [snd fst])
 
+(let [numbers [1 2 3 4]]
+  (as-> numbers $
+    (map inc $)
+    (filter odd? $)
+    (first $)
+    (hash-map :result $ :id 1)))
+
+(defn describe-number
+  [n]
+  (cond-> []
+    (odd? n) (conj "odd")
+    (even? n) (conj "even")
+    (zero? n) (conj "zero")
+    (pos? n) (conj "positive")))
+
+(describe-number 3)
+
+(some-> (rand-nth [1 nil])
+        (inc))
+
+
+;; only allowed in CLJC files
+;; (defn parse-int
+;;   [v]
+;;   #?(:clj  (Integer/parseInt s)
+;;      :cljs (js/parseInt s)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
