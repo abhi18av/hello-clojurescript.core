@@ -539,66 +539,66 @@
 ;;   (conj spanish-vowels \æ \ø \å))
 
 
-(def pq #queue [1 2 3])
+;; (def pq #queue [1 2 3])
 
-(peek pq)
-(pop pq)
-(conj pq 1)
+;; (peek pq)
+;; (pop pq)
+;; (conj pq 1)
 
-(let [[fst scnd & others] [0 1 2 3 5]]
-  (run! println [fst scnd others]))
+;; (let [[fst scnd & others] [0 1 2 3 5]]
+;;   (run! println [fst scnd others]))
 
-(let [[fst snd & more :as original] (range 10)]
-  {:first fst
-   :snd snd
-   :rest more
-   :original original})
+;; (let [[fst snd & more :as original] (range 10)]
+;;   {:first fst
+;;    :snd snd
+;;    :rest more
+;;    :original original})
 
-(let [{language :language} {:language "ClojureScript"}]
-  language)
+;; (let [{language :language} {:language "ClojureScript"}]
+;;   language)
 
-(let [{name :name :or {name "Anonymous"}} {:name "Cirilla"}]
-  name)
+;; (let [{name :name :or {name "Anonymous"}} {:name "Cirilla"}]
+;;   name)
 
-(let [{name :name :as person} {:name "Cirilla" :age 49}]
-  [name person])
+;; (let [{name :name :as person} {:name "Cirilla" :age 49}]
+;;   [name person])
 
-(let [{one 1} {0 "zero" 1 "one"}]
-  one)
-;; => "one"
+;; (let [{one 1} {0 "zero" 1 "one"}]
+;;   one)
+;; ;; => "one"
 
-(let [{name "name"} {"name" "Cirilla"}]
-  name)
-;; => "Cirilla"
+;; (let [{name "name"} {"name" "Cirilla"}]
+;;   name)
+;; ;; => "Cirilla"
 
-(let [{lang 'language} {'language "ClojureScript"}]
-  lang)
+;; (let [{lang 'language} {'language "ClojureScript"}]
+;;   lang)
 
-(let [{:keys [name surname]} {:name "Cirilla" :surname "Fiona"}]
-  [name surname])
+;; (let [{:keys [name surname]} {:name "Cirilla" :surname "Fiona"}]
+;;   [name surname])
 
-(let [{[fst snd] :languages} {:languages ["ClojureScript" "Clojure"]}]
-  [snd fst])
+;; (let [{[fst snd] :languages} {:languages ["ClojureScript" "Clojure"]}]
+;;   [snd fst])
 
-(let [numbers [1 2 3 4]]
-  (as-> numbers $
-    (map inc $)
-    (filter odd? $)
-    (first $)
-    (hash-map :result $ :id 1)))
+;; (let [numbers [1 2 3 4]]
+;;   (as-> numbers $
+;;     (map inc $)
+;;     (filter odd? $)
+;;     (first $)
+;;     (hash-map :result $ :id 1)))
 
-(defn describe-number
-  [n]
-  (cond-> []
-    (odd? n) (conj "odd")
-    (even? n) (conj "even")
-    (zero? n) (conj "zero")
-    (pos? n) (conj "positive")))
+;; (defn describe-number
+;;   [n]
+;;   (cond-> []
+;;     (odd? n) (conj "odd")
+;;     (even? n) (conj "even")
+;;     (zero? n) (conj "zero")
+;;     (pos? n) (conj "positive")))
 
-(describe-number 3)
+;; (describe-number 3)
 
-(some-> (rand-nth [1 nil])
-        (inc))
+;; (some-> (rand-nth [1 nil])
+;;         (inc))
 
 
 ;; only allowed in CLJC files
@@ -610,32 +610,126 @@
 
 
 
+(defprotocol IInvertible
+  "This is a protocol for data types that are 'invertible'"
+  (invert [this] "Invert the given item."))
+
+(comment
+
+  ;; can be one-off anywhere in the program
+  (extend-type string
+    IInvertible
+    (invert [this] (apply str (reverse this))))
+
+  (extend-type cljs.core.List
+    IInvertible
+    (invert [this] (reverse this)))
+
+  (extend-type cljs.core.PersistentVector
+    IInvertible
+    (invert [this] (into [] (reverse this)))))
+
+;; OR
+
+(comment
+
+  ;; these need to be bundled
+
+  (extend-protocol IInvertible
+    string
+    (invert [this] (apply str (reverse this)))
+
+    cljs.core.List
+    (invert [this] (reverse this))
+
+    cljs.core.PersistentVector
+    (invert [this] (into [] (reverse this)))))
+
+
+;;;;;;;;;;;
+
+
+;; (extend-type js/RegExp
+;;   IFn
+;;   (-invoke
+;;     ([this a]
+;;      (re-find this a))))
+
+;; (filter #"^foo" ["haha" "foobar" "baz" "foobaz"])
+
+;; (satisfies? IFn #"")
 
 
 
 
+;; (defmulti say-hello
+;;   "A polymorphic function that return a greetings message
+;;   depending on the language key with default lang as `:en`"
+;;   ;; dispatch function
+;;   (fn [param] (:locale param))
+;;   :default :en)
+
+
+
+;; (defmethod say-hello :en
+;;   [person]
+;;   (str "Hello " (:name person "Anonymous")))
+
+;; (defmethod say-hello :es
+;;   [person]
+;;   (str "Hola " (:name person "Anónimo")))
+
+
+;; (say-hello {:locale :es})
+
+
+;; (say-hello {:locale :fr}) ;; returns the :en dispatch
+
+;;;;;
+
+;; (derive ::circle ::shape)
+
+
+
+;; (def h (-> (make-hierarchy)
+;;            (derive :box :shape)
+;;            (derive :circle :shape)))
+
+
+;; (type h)
+
+
+;; (isa? h :box :shape)
 
 
 
 
+;; (defmulti stringify-shape
+;;   "A function that prints a human readable representation
+;;   of a shape keyword."
+;;   identity
+;;   :hierarchy #'h)
 
 
 
+;; (defmethod stringify-shape :box
+;;   [_]
+;;   "A box shape")
+
+;; (defmethod stringify-shape :shape
+;;   [_]
+;;   "A generic shape")
+
+;; (defmethod stringify-shape :default
+;;   [_]
+;;   "Unexpected object")
 
 
+;; (stringify-shape :box)
 
+;; (stringify-shape :circle)
 
-
-
-
-
-
-
-
-
-
-
-
+;; (stringify-shape :triangle)
 
 
 
