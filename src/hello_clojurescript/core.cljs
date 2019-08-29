@@ -731,22 +731,76 @@
 
 ;; (stringify-shape :triangle)
 
+;;;;;;;;;
+
+
+;; (deftype User [firstname lastname])
+
+
+;; (def person (User. "Triss" "Merigold"))
+
+;; (.-firstname person)
+
+
+;; (defn make-user
+;;   [firstname lastname]
+;;   (User. firstname lastname))
+
+;; (.-firstname (->User "Abhinav" "Sharma"))
+
+
+;;;;;;;;;
+
+
+
+;; (defrecord User [firstname lastname])
+
+;; (def person (User. "Yennefer" "of Vengerberg"))
+
+;; (:firstname person)
+
+;; (get person :firstname)
+
+;; (map? person)
+
+
+;; (def person2 (assoc person :age 92))
+
+;; (:age person2)
 
 
 
 
 
 
+;; (def plain-person {:firstname "Yennefer", :lastname "of Vengerberg"})
+
+;; (plain-person :firstname)
+
+;; => "Yennefer"
+
+;; (person :firstname)
+;; => person.User does not implement IFn protocol.
 
 
 
 
 
+;; (def cirilla (->User "Cirilla" "Fiona"))
+
+;; (def yen (map->User {:firstname "Yennefer"
+;;                      :lastname "of Vengerberg"}))
 
 
+;; (defn user
+;;   [firstname lastname]
+;;   (reify
+;;     IUser
+;;     (full-name [_]
+;;       (str firstname " " lastname))))
 
-
-
+;; (def yen (user "Yennefer" "of Vengerberg"))
+;; (full-name yen)
 
 
 
