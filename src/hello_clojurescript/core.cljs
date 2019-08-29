@@ -822,6 +822,42 @@
 ;; (into-array {:a "A"})
 
 
+;;;;;;;
+
+
+;; (def a (atom nil))
+
+;; (add-watch a :logger (fn [key the-atom old-value new-value]
+;;                        (println "Key:" key "Old:" old-value "New:" new-value)))
+
+;; (reset! a 42)
+
+;; (swap! a inc)
+
+;; (remove-watch a :logger)
+
+;; (remove-watch a :logger)
+
+;;;;;;;
+
+
+(def ciri (volatile! {:name "Cirilla" :lastname "Fiona" :age 20}))
+;; #<Volatile: {:name "Cirilla", :lastname "Fiona", :age 20}>
+
+(volatile? ciri)
+;; => true
+
+(deref ciri) ;; @ciri
+
+;; {:name "Cirilla", :lastname "Fiona", :age 20}
+
+(vswap! ciri update :age inc)
+;; {:name "Cirilla", :lastname "Fiona", :age 21}
+
+(vreset! ciri {:name "Cirilla", :lastname "Fiona", :age 22})
+;; {:name "Cirilla", :lastname "Fiona", :age 22}
+
+
 
 
 
