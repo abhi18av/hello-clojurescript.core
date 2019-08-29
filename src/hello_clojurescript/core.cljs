@@ -12,6 +12,8 @@
 ;; http://localhost:9500/
 ;; http://localhost:9500/figwheel-extra-main/auto-testing ;; testing figwheel
 
+
+;; https://guide.freecodecamp.org/javascript/typeof/
 ;; https://funcool.github.io/clojurescript-unraveled/
 ;; https://devdocs.io/node/process
 ;; https://cljs.github.io/api/
@@ -803,12 +805,21 @@
 ;; (full-name yen)
 
 
+;;;;;;;
+;; HOST interoperability
 
 
+;; (def myobj #js {:country "FR"})
 
+;; (.-country myobj)
 
+;; (goog.typeOf myobj)
 
+;; (type myobj)
 
+;; (get myobj "country")
+
+;; (into-array {:a "A"})
 
 
 
