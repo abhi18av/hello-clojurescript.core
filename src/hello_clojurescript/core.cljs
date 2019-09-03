@@ -859,8 +859,26 @@
 
 
 
+;;;;;;;;;;
+;; Advanced language features
+;;;;;;;;;;
 
 
+
+(def grape-clusters
+  [{:grapes [{:rotten? false :clean? false}
+             {:rotten? true :clean? false}]
+    :color :green}
+   {:grapes [{:rotten? true :clean? false}
+             {:rotten? false :clean? false}]
+    :color :black}])
+
+(defn my-mapr
+  [f coll]
+  (reduce (fn [acc input]         ;; reducing function
+            (conj acc (f input)))
+          []                      ;; initial value
+          coll))                  ;; collection to reduce
 
 
 
@@ -1054,27 +1072,42 @@
 
 
 
+;;;;;;;;;;;;;;;;;
+;; FRONTENDMASTERS
+;; 001 => Object Oriented JavaScript - Pseudoclassical
+;;;;;;;;;;;;;;;;;
 
 
+;; (def nodejs-process (js/require "process"))
+
+;; (goog/typeOf nodejs-process)
+
+;; (js/console.log
+;;  (.-versions nodejs-process))
 
 
+;; (def nodejs-os (js/require "os"))
+
+;; (goog/typeOf nodejs-os)
+
+;; (js/console.log
+;;  (.cpus nodejs-os))
 
 
+;; (println
+;;  (get
+;;   (js->clj (->
+;;             (.cpus nodejs-os)
+;;             js/JSON.stringify
+;;             js/JSON.parse))
+;;   0))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+(def a-stack '(1 2 3))
+(peek a-stack)
+(pop a-stack)
+(cons 4 a-stack)
+(conj a-stack 4)
 
 
 
