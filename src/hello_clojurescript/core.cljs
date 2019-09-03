@@ -1103,11 +1103,40 @@
 ;;   0))
 
 
-(def a-stack '(1 2 3))
-(peek a-stack)
-(pop a-stack)
-(cons 4 a-stack)
-(conj a-stack 4)
+;; (def a-stack '(1 2 3))
+;; (peek a-stack)
+;; (pop a-stack)
+;; (cons 4 a-stack)
+;; (conj a-stack 4)
+
+
+
+;; a js-stack of 10 elements implemented via global var and impure functions (instead of methods)
+
+(def js-stack (array 1 2 3 4 5 6 7 8 9 10))
+
+;; (goog.typeOf js-stack)
+
+
+(defn js-stack-length
+  []
+  (.-length js-stack))
+
+
+(defn js-stack-push!
+  [a-number]
+  (if (< (js-stack-length) 10)
+    (.push js-stack a-number)
+    "Stack Overflow"))
+
+
+(defn js-stack-pop!
+  []
+  (if (> (js-stack-length) 0)
+    (.pop js-stack)
+    "Stack Underflow"))
+
+
 
 
 
