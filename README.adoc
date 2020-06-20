@@ -8,6 +8,7 @@
 - https://google.github.io/closure-library/api/
 - https://cljs.github.io/api/
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+- https://www.learn-clojurescript.com/section-4/lesson-25-intro-to-core-async/
 
 == ToDos
 [] `clj` and `cljc` namespaces 
