@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.eclipse.jetty.websocket/websocket-common:9.4.28.v20200408">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/websocket/websocket-common/9.4.28.v20200408/websocket-common-9.4.28.v20200408.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <MATHEMATICA_LIBRARY />
+    <SOURCES />
+  </library>
+</component>

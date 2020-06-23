@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.clojure/core.specs.alpha:0.2.44">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/clojure/core.specs.alpha/0.2.44/core.specs.alpha-0.2.44.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <MATHEMATICA_LIBRARY />
+    <SOURCES />
+  </library>
+</component>
