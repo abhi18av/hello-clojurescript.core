@@ -1,2 +1,0 @@
-(ns hello-clojurescript.core)
-
