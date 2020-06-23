@@ -52,17 +52,18 @@
 ;; PLAYGROUND
 ;;;;;;;;;;;;;;;;;
 
+(comment
+   (js/alert "Hello, ClojureScript!")
 
-;; (js/alert "Hello, ClojureScript!")
+   (js/console.clear)
 
 
-;; (js/console.clear)
+   (println (type 1))
+   (println (type 1.0))
 
+   (println {:a "A" :c {:b "b"}})
 
-;; (println (type 1))
-;; (println (type 1.0))
-
-;; (println {:a "A" :c {:b "b"}})
+  '())
 
 
 ;; ;;;;;;;;;;;;;;;;;
@@ -340,11 +341,11 @@
 ;; https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
 ;;;;;;;;;;;;;;;;;
 
-;; (def a-js-set-1 (js/Set.))
-;; (type a-js-set-1)
-;; (.add a-js-set-1 1)
-;; (.add a-js-set-1 2)
-;; (js/console.log a-js-set-1)
+ ;(def a-js-set-1 (js/Set.))
+ ;(type a-js-set-1)
+ ;(.add a-js-set-1 1)
+ ;(.add a-js-set-1 2)
+ ;(js/console.log a-js-set-1)
 
 
 ;; (def a-js-set-2 (js/Set.))

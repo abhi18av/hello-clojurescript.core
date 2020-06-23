@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/abhi18av/hello-clojurescript.core#readme",
   "devDependencies": {
-    "nw": "^0.46.2-sdk"
+    "nw": "^0.46.2-sdk",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {}
 }

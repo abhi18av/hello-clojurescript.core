@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Leiningen: appliedscience/js-interop:0.2.4">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/appliedscience/js-interop/0.2.4/js-interop-0.2.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <MATHEMATICA_LIBRARY />
+    <SOURCES />
+  </library>
+</component>
